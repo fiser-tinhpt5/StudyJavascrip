@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Number</title>
+	<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+<body>
+	<div id="content">
+		
+	</div>
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var string = "";
+		for (var i = 1; i < 10; i++) {
+			string += "<input id='" + i + "' type='button' value='" + i + "' onclick='addNumber(value)'>";
+			if (i%3 == 0) {
+				string += "</br>"
+			}
+		}
+		string += "<input id='sum' type='text' value='0'></br>";
+		string += "<input id='reset' type='button' value='reset' onclick='reset()'>";
+		$("#content").html(string);
+	})
+	
+	var sum = 0;
+	function addNumber(value) {
+		var number =  parseInt(value);
+		sum += number;
+		$("#sum").val(sum);
+	}
+	function reset(){
+		$("#sum").val("0");
+		sum = 0;
+	}
+</script>
+</html>
